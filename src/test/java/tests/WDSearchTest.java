@@ -1,6 +1,8 @@
 package tests;
 
 
+import io.qameta.allure.Owner;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
@@ -14,6 +16,8 @@ public class WDSearchTest extends TestBase {
 
 
     @Test
+    @Owner("alexandrsoloviev")
+    @DisplayName("Wildberries search test")
     void searchTest() {
 
         step("Open app", () -> {
