@@ -10,8 +10,9 @@ import javax.annotation.Nonnull;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+
 public class BrowserstackDriver implements WebDriverProvider {
-     public static RemoteWebDriver driver;
+
     @Nonnull
     @Override
     public WebDriver createDriver(@Nonnull Capabilities capabilities) {
@@ -35,15 +36,13 @@ public class BrowserstackDriver implements WebDriverProvider {
 
         // Initialise the remote Webdriver using BrowserStack remote URL
         // and desired capabilities defined above
-      driver = new RemoteWebDriver(getBrowserstackUrl(),mutableCapabilities);
-      return driver;
-    }
-
-    public static URL getBrowserstackUrl() {
         try {
-            return new URL("https://hub.browserstack.com/wd/hub");
+            return new RemoteWebDriver(
+                    new URL("https://hub.browserstack.com/wd/hub"), mutableCapabilities);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
     }
+
+
 }
