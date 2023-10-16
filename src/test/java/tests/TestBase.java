@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 
 public class TestBase {
-    public static String env = System.getProperty("env", "local");
+    public static String env = System.getProperty("env", "browserstack");
 
     @BeforeAll
     static void beforeAll() {
